@@ -29,5 +29,7 @@ public class Main {
         message.getText();
         System.out.println("Message: " + message.getText());
         driver.quit();
+
+        // test
     }
 }
