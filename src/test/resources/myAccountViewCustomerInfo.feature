@@ -1,5 +1,5 @@
 @UserStory-2
-Feature: My Account customer info page
+Feature: View customer information in My Account
 
   @TC-030 @BUG-009 @BUG-012
   Scenario Outline: Personal information is displayed in input fields

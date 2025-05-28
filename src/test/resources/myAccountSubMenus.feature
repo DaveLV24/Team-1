@@ -1,5 +1,6 @@
 @UserStory-2
 Feature: My Account page sub menus
+
   Background:
     Given I am on Demo Web Shop page
     When I click login header button
