@@ -24,12 +24,3 @@ Feature: My Account page sub menus
     Then I see Wishlist option in the header
     And I see Log out option in the header
     And I see News and Blog options in the footer
-
-  @TC-030 @BUG-009 @BUG-012
-  Scenario: Personal information is displayed in input fields
-    When I click on my email in the header
-    And I am redirected to My Account page
-    And I click on Customers info menu option
-    Then I can see first name displayed in input field
-    And I can see last name displayed in input field
-    And I can see email displayed in input field

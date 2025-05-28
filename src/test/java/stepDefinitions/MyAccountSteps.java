@@ -114,21 +114,24 @@ public class MyAccountSteps {
         customerInfoPage.clickCustomerInfoSubMenu();
     }
 
-    @Then("^I can see first name displayed in input field$")
-    public void iCanSeeFirstNameDisplayedInInputField() {
+    @Then("^I can see \"([^\"]*)\" displayed in first name input field$")
+    public void iCanSeeFirstNameDisplayedInInputField(String firstName) {
         assertTrue(customerInfoPage.getFirstNameInput().isDisplayed());
         assertFalse(customerInfoPage.getFirstNameInput().getDomAttribute("value").isEmpty());
+        assertEquals(firstName, customerInfoPage.getFirstNameInput().getDomAttribute("value"));
     }
 
-    @Then("^I can see last name displayed in input field$")
-    public void iCanSeeLastNameDisplayedInInputField() {
+    @Then("^I can see \"([^\"]*)\" displayed in last name input field$")
+    public void iCanSeeLastNameDisplayedInInputField(String lastName) {
         assertTrue(customerInfoPage.getLastNameInput().isDisplayed());
         assertFalse(customerInfoPage.getLastNameInput().getDomAttribute("value").isEmpty());
+        assertEquals(lastName, customerInfoPage.getLastNameInput().getDomAttribute("value"));
     }
 
-    @Then("^I can see email displayed in input field$")
-    public void iCanSeeEmailDisplayedInInputField() {
+    @Then("^I can see \"([^\"]*)\" displayed in email input field$")
+    public void iCanSeeEmailDisplayedInInputField(String email) {
         assertTrue(customerInfoPage.getEmailInput().isDisplayed());
         assertFalse(customerInfoPage.getEmailInput().getDomAttribute("value").isEmpty());
+        assertEquals(email, customerInfoPage.getEmailInput().getDomAttribute("value"));
     }
 }
