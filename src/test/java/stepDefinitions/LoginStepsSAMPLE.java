@@ -42,4 +42,5 @@ public class LoginStepsSAMPLE {
         String message = loginPageSAMPLE.getErrorMessage();
         Assert.assertTrue(message.contains("Your username is invalid!") || message.contains("Your password is invalid!"));
     }
+
 }

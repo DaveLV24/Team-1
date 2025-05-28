@@ -6,6 +6,10 @@ import org.openqa.selenium.WebDriver;
 public class LoginPageSAMPLE {
     WebDriver driver;
 
+    public LoginPageSAMPLE(WebDriver driver) {
+        this.driver = driver;
+    }
+
     // Locators
     By usernameInput = By.id("username");
     By passwordInput = By.name("password");
@@ -13,9 +17,7 @@ public class LoginPageSAMPLE {
     By successMessage = By.cssSelector(".flash.success");
     By errorMessage = By.xpath("//div[@data-alert=''][contains(@class,'flash')]");
 
-    public LoginPageSAMPLE(WebDriver driver) {
-        this.driver = driver;
-    }
+
 
     // Actions
     public void enterUsername(String username) {
