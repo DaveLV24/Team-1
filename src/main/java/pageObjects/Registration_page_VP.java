@@ -3,16 +3,18 @@ package pageObjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
 
 import java.security.SecureRandom;
 import java.util.UUID;
 
 import static org.openqa.selenium.By.xpath;
 
-public class TC_001_page {
+public class Registration_page_VP {
     WebDriver driver;
-    public TC_001_page(WebDriver driver) {
+    public Registration_page_VP(WebDriver driver) {
         this.driver = driver;
     }
 
@@ -22,8 +24,11 @@ public class TC_001_page {
     By password = xpath("//input[@id='Password']");
     By confirmPassword = xpath("//input[@id='ConfirmPassword']");
     By register = By.id("register-button");
-    //By mismatchError = By.class("The password and confirmation password do not match.");
+    By passwordMismatchError = By.cssSelector("span.field-validation-error[data-valmsg-for='ConfirmPassword'] > span");
     By successMessage = By.cssSelector("div.result");
+    By logOut = By.className("ico-logout");
+    By logIn  = By.className("ico-login");
+
 
 
     public void enterFirstName(String fName) {
@@ -64,6 +69,25 @@ public class TC_001_page {
         return driver.findElement(successMessage).isDisplayed()
                 && driver.findElement(successMessage).getText().contains("Your registration completed");
     }
+
+    public String getPasswordMismatchErrorText() {
+        return driver.findElement(passwordMismatchError).getText();
+    }
+
+    public void clickLogOut() {
+        driver.findElement(logOut).click();
+    }
+
+    public boolean logOutAndReturnToHomePage() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+        Boolean logOutIsGone = wait.until(ExpectedConditions.invisibilityOfElementLocated(logOut));
+        return logOutIsGone;
+    }
+
+    public void clickLogIn() {
+        new WebDriverWait(driver, Duration.ofSeconds(3)).until(ExpectedConditions.elementToBeClickable(logIn)).click();
+    }
+
 
 
     public static class TestDataGenerator {
