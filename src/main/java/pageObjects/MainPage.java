@@ -9,6 +9,8 @@ public class MainPage {
     private WebElement customerInfoHeaderButton;
     @FindBy(how = How.CSS, using = "a[href='/login']")
     private WebElement loginHeaderButton;
+    @FindBy(how = How.CSS, using = "a[href='/logout']")
+    private WebElement logoutHeaderButton;
     @FindBy(how = How.CSS, using = ".header-links a[href='/wishlist']")
     private WebElement wishlistHeaderButton;
     @FindBy(how = How.CSS, using = "a[href='/news']")
@@ -28,16 +30,20 @@ public class MainPage {
         loginHeaderButton.click();
     }
 
-    public void clickWishlistHeaderButton() {
-        wishlistHeaderButton.click();
+    public WebElement getWishlistHeaderButton() {
+        return wishlistHeaderButton;
     }
 
-    public void clickNewsFooterButton() {
-        newsFooterButton.click();
+    public WebElement getLogoutHeaderButton() {
+        return logoutHeaderButton;
     }
 
-    public void clickBlogFooterButton() {
-        blogFooterButton.click();
+    public WebElement getNewsFooterButton() {
+        return newsFooterButton;
+    }
+
+    public WebElement getBlogFooterButton() {
+        return blogFooterButton;
     }
 
 }

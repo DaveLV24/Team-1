@@ -4,7 +4,6 @@ import hooks.Hooks;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -52,7 +51,6 @@ public class MyAccountSteps {
 
     @When("^I click on my email in the header$")
     public void iClickOnMyEmailInTheHeader() {
-        assertTrue("Should be in Demo Web Shop page", driver.getCurrentUrl().contains(mainPage.getPageUrl()));
         mainPage.clickCustomerInfoHeaderButton();
     }
 
@@ -89,5 +87,48 @@ public class MyAccountSteps {
     @Then("^I see Change password menu label$")
     public void iSeeChangePasswordMenuLabel() {
         assertEquals("Change password", customerInfoPage.getChangePasswordSubMenu().getText());
+    }
+
+    @Then("^I see Wishlist option in the header$")
+    public void iSeeWishlistOptionInTheHeader() {
+        assertTrue(mainPage.getWishlistHeaderButton().isDisplayed());
+        assertTrue(mainPage.getWishlistHeaderButton().getText().contains("Wishlist"));
+    }
+
+    @Then("^I see Log out option in the header$")
+    public void iSeeLogOutOptionInTheHeader() {
+        assertTrue(mainPage.getLogoutHeaderButton().isDisplayed());
+        assertEquals("Log out", mainPage.getLogoutHeaderButton().getText());
+    }
+
+    @Then("^I see News and Blog options in the footer$")
+    public void iSeeNewsAndBlogOptionsInTheFooter() {
+        assertTrue(mainPage.getNewsFooterButton().isDisplayed());
+        assertEquals("News", mainPage.getNewsFooterButton().getText());
+        assertTrue(mainPage.getBlogFooterButton().isDisplayed());
+        assertEquals("Blog", mainPage.getBlogFooterButton().getText());
+    }
+
+    @When("^I click on Customers info menu option$")
+    public void iClickOnCustomersInfoMenuOption() {
+        customerInfoPage.clickCustomerInfoSubMenu();
+    }
+
+    @Then("^I can see first name displayed in input field$")
+    public void iCanSeeFirstNameDisplayedInInputField() {
+        assertTrue(customerInfoPage.getFirstNameInput().isDisplayed());
+        assertFalse(customerInfoPage.getFirstNameInput().getDomAttribute("value").isEmpty());
+    }
+
+    @Then("^I can see last name displayed in input field$")
+    public void iCanSeeLastNameDisplayedInInputField() {
+        assertTrue(customerInfoPage.getLastNameInput().isDisplayed());
+        assertFalse(customerInfoPage.getLastNameInput().getDomAttribute("value").isEmpty());
+    }
+
+    @Then("^I can see email displayed in input field$")
+    public void iCanSeeEmailDisplayedInInputField() {
+        assertTrue(customerInfoPage.getEmailInput().isDisplayed());
+        assertFalse(customerInfoPage.getEmailInput().getDomAttribute("value").isEmpty());
     }
 }

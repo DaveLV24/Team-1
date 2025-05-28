@@ -23,7 +23,7 @@ public class MyAccountPage {
         return "https://demowebshop.tricentis.com/customer/info";
     }
 
-    public void openCustomerInfoSubMenu() {
+    public void clickCustomerInfoSubMenu() {
         customerInfoSubMenu.click();
     }
 
