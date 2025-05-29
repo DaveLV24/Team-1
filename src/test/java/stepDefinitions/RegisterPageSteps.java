@@ -6,10 +6,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 import static org.junit.Assert.assertEquals;
 
@@ -64,8 +60,15 @@ public class RegisterPageSteps {
         assertEquals("Password is required.", driver.findElement(By.cssSelector("span[for='ConfirmPassword']")).getText());
     }
 
-    @And("wait if needed")
-    public void waitIfNeeded() throws InterruptedException {
-        Thread.sleep(2000);
+
+    @And("enter wrong {string} format")
+    public void enterWrongFormat(String email) {
+        driver.findElement(By.xpath("//input[@id='Email']")).sendKeys(email);
+    }
+
+    @Then("error message is displayed")
+    public void errorMessageIsDisplayed() {
+        assertEquals("Wrong email", driver.findElement(By.cssSelector("span[for='Email']")).getText());
+
     }
 }

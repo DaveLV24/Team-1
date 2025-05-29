@@ -13,4 +13,16 @@
     And press register button
     Then ensure error messages
 
+ Scenario Outline: Error message for email
+   When open register page
+   And enter wrong "<email>" format
+   And press register button
+   Then error message is displayed
+
+   Examples:
+     |  email    |
+     | @@@@@@    |
+     | @inbox.lv |
+     | aaaa.lv   |
+     | 1223344   |
 
