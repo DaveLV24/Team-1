@@ -14,14 +14,16 @@ public class LoginPage {
     By emailInput = By.id("Email");
     By passwordInput = By.id("Password");
     By loginButton = By.cssSelector("input[value='Log in']");
+    By loggedEmail = By.cssSelector("a.account");
+    By passwordErrorMessage = By.className("message-error");
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
-    public void enterUsername(String username) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(emailInput)).sendKeys(username);
+    public void enterEmail(String email) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(emailInput)).sendKeys(email);
     }
 
     public void enterPassword(String password) {
@@ -30,5 +32,13 @@ public class LoginPage {
 
     public void clickLogin() {
         driver.findElement(loginButton).click();
+    }
+    public String getLoggedEmailValue() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(1));
+        return driver.findElement(loggedEmail).getText();
+    }
+
+    public String getIncorrectCredentialsErrorText() {
+        return driver.findElement(passwordErrorMessage).getText();
     }
 }
