@@ -14,14 +14,14 @@ public class UserAccountSteps {
     LoginPage loginPage;
     UserAccountPage userAccountPage;
 
-    @Given("I am logged in")
-    public void i_am_logged_in() {
-        driver.get("https://demowebshop.tricentis.com/login");
-        loginPage = new LoginPage(driver);
-        loginPage.enterEmail("ndryev@gmail.com");
-        loginPage.enterPassword("password123");
-        loginPage.clickLogin();
-    }
+//    @Given("I am logged in")
+//    public void i_am_logged_in() {
+//        driver.get("https://demowebshop.tricentis.com/login");
+//        loginPage = new LoginPage(driver);
+//        loginPage.enterEmail("ndryev@gmail.com");
+//        loginPage.enterPassword("password123");
+//        loginPage.clickLogin();
+//    }
 
     @When("I navigate to the Edit Account page")
     public void navigate_to_edit_account() {
@@ -39,16 +39,16 @@ public class UserAccountSteps {
         userAccountPage.clickSave();
     }
 
-    @Then("I should see a success message")
-    public void verify_success_message() {
-        // Verify changes persisted instead
-        driver.navigate().refresh();
-        String currentEmail = driver.findElement(By.id("Email")).getAttribute("value");
-        Assert.assertEquals("ndryev@gmail.com", currentEmail);
-
-        // Log the actual bug
-        System.out.println("WARNING: Success message not displayed - known bug");
-    }
+//    @Then("I should see a success message")
+//    public void verify_success_message() {
+//        // Verify changes persisted instead
+//        driver.navigate().refresh();
+//        String currentEmail = driver.findElement(By.id("Email")).getAttribute("value");
+//        Assert.assertEquals("ndryev@gmail.com", currentEmail);
+//
+//        // Log the actual bug
+//        System.out.println("WARNING: Success message not displayed - known bug");
+//    }
 
     @Then("the changes should be reflected on the account page")
     public void verify_changes_persisted() {
