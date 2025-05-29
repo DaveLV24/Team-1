@@ -7,6 +7,8 @@ import org.openqa.selenium.support.How;
 public class MainPage {
     @FindBy (how = How.CSS, using = "a[href='/customer/info']")
     private WebElement customerInfoHeaderButton;
+    @FindBy(how = How.CSS, using = "a[href='/register']")
+    private WebElement registerHeaderButton;
     @FindBy(how = How.CSS, using = "a[href='/login']")
     private WebElement loginHeaderButton;
     @FindBy(how = How.CSS, using = "a[href='/logout']")
@@ -24,6 +26,10 @@ public class MainPage {
 
     public void clickCustomerInfoHeaderButton() {
         customerInfoHeaderButton.click();
+    }
+
+    public void clickRegisterHeaderButton() {
+        registerHeaderButton.click();
     }
 
     public void clickLoginHeaderButton() {
