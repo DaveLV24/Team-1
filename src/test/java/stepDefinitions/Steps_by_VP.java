@@ -5,24 +5,25 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+import pageObjects.Login_page_VP;
 import pageObjects.Registration_page_VP;
-
-import java.time.Duration;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class TC_001_steps {
+public class Steps_by_VP {
 
     private WebDriver driver;
     private Registration_page_VP registerPage;
     private String generatedPassword;
     private String generateDifferentConfirmationPassword;
+    private Login_page_VP loginPage;
 
 
-    public TC_001_steps() {
+    public Steps_by_VP() {
         this.driver = Hooks.driver;
+        this.registerPage = new Registration_page_VP(driver);
+        this.loginPage = new Login_page_VP(driver);
     }
 
 
@@ -109,14 +110,41 @@ public class TC_001_steps {
         assertEquals("https://demowebshop.tricentis.com/login", driver.getCurrentUrl());
     }
 
-//    @When("I enter valid login credentials")
-//    public void iEnterValidLoginCredentials() {
-//        // Используем те же данные, что регистрировали ранее
-//        loginPage.enterLoginCredentials(
-//                TestDataGenerator.getLastRegisteredEmail(),
-//                TestDataGenerator.getLastRegisteredPassword()
-//        );
-//    }
+    @When("I enter valid login email")
+    public void iEnterValidLoginEmail() {
+        String email = Registration_page_VP.TestDataGenerator.getLastEmail();
+        loginPage.enterEmail(email);
+    }
+
+    @When("I enter valid login password")
+    public void iEnterValidLoginPassword() {
+        String pwd = Registration_page_VP.TestDataGenerator.getLastPassword();
+        loginPage.enterPassword(pwd);
+    }
+
+    @When("I click Log in button")
+    public void ClickLogInButton() {
+        loginPage.clickLogIn();
+    }
+
+    @Then("I am logged in successfully")
+    public void loginSuccess() {
+        String expectedEmail = Registration_page_VP.TestDataGenerator.getLastEmail();
+        String actualEmail = loginPage.getLoggedEmailValue();
+        assertEquals(expectedEmail, actualEmail);
+    }
+
+    @When("I enter invalid login password")
+    public void iEnterInValidLoginPassword() {
+        String pwd = "123456";
+        loginPage.enterPassword(pwd);
+    }
+
+    @Then("I see incorrect credentials error")
+    public void iSeeIncorreectCredentialsError() {
+        String actualText = loginPage.getIncorrectCredentialsErrorText();
+        assertTrue(actualText.contains("The credentials provided are incorrect"));
+    }
 
 
 

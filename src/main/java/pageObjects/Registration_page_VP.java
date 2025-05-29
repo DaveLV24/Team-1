@@ -14,6 +14,7 @@ import static org.openqa.selenium.By.xpath;
 
 public class Registration_page_VP {
     WebDriver driver;
+
     public Registration_page_VP(WebDriver driver) {
         this.driver = driver;
     }
@@ -27,8 +28,7 @@ public class Registration_page_VP {
     By passwordMismatchError = By.cssSelector("span.field-validation-error[data-valmsg-for='ConfirmPassword'] > span");
     By successMessage = By.cssSelector("div.result");
     By logOut = By.className("ico-logout");
-    By logIn  = By.className("ico-login");
-
+    By logIn = By.className("ico-login");
 
 
     public void enterFirstName(String fName) {
@@ -79,15 +79,16 @@ public class Registration_page_VP {
     }
 
     public boolean logOutAndReturnToHomePage() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(1));
         Boolean logOutIsGone = wait.until(ExpectedConditions.invisibilityOfElementLocated(logOut));
         return logOutIsGone;
     }
 
     public void clickLogIn() {
-        new WebDriverWait(driver, Duration.ofSeconds(3)).until(ExpectedConditions.elementToBeClickable(logIn)).click();
+        new WebDriverWait(driver, Duration.ofSeconds(1))
+                .until(ExpectedConditions.visibilityOfElementLocated(logIn));
+        new WebDriverWait(driver, Duration.ofSeconds(1)).until(ExpectedConditions.elementToBeClickable(logIn)).click();
     }
-
 
 
     public static class TestDataGenerator {
@@ -97,19 +98,32 @@ public class Registration_page_VP {
         private static final String PASSWORD_ALLOW = CHAR_LOWER + CHAR_UPPER + DIGITS;
         private static final SecureRandom random = new SecureRandom();
 
+        private static String lastEmail;
+        private static String lastPassword;
+
         public static String generateRandomPassword(int length) {
             StringBuilder password = new StringBuilder(length);
             for (int i = 0; i < length; i++) {
                 int index = random.nextInt(PASSWORD_ALLOW.length());
                 password.append(PASSWORD_ALLOW.charAt(index));
             }
-            return password.toString();
+            lastPassword = password.toString();
+            return lastPassword;
         }
 
         public static String generateRandomEmail() {
             String uuid = UUID.randomUUID().toString().substring(0, 8);
-            return "user" + uuid + "@gmail.com";
+            lastEmail = "user" + uuid + "@gmail.com";
+            return lastEmail;
         }
-    }
 
+        public static String getLastEmail() {
+            return lastEmail;
+        }
+
+        public static String getLastPassword() {
+            return lastPassword;
+        }
+
+    }
 }
