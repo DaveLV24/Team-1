@@ -11,6 +11,8 @@ public class LoginPage {
     private WebElement passwordInput;
     @FindBy (how = How.CLASS_NAME, using = "login-button")
     private WebElement loginButton;
+    @FindBy (how = How.CLASS_NAME, using = "validation-summary-errors")
+    private WebElement validationError;
 
     public void enterEmail(String email) {
         emailInput.clear();
@@ -24,5 +26,9 @@ public class LoginPage {
 
     public void clickLoginBtn() {
         loginButton.click();
+    }
+
+    public String getErrorMessage() {
+        return validationError.getText();
     }
 }

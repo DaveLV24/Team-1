@@ -134,4 +134,11 @@ public class MyAccountSteps {
         assertFalse(customerInfoPage.getEmailInput().getDomAttribute("value").isEmpty());
         assertEquals(email, customerInfoPage.getEmailInput().getDomAttribute("value"));
     }
+
+    @Then("^I see error login error message: \"([^\"]*)\"$")
+    public void iSeeErrorLoginErrorMessage(String errorMessage) {
+        String actualMessage = loginPage.getErrorMessage().replaceAll("\\s+", " ").trim();
+        String expectedMessage = errorMessage.replaceAll("\\s+", " ").trim();
+        assertEquals(expectedMessage, actualMessage);
+    }
 }
