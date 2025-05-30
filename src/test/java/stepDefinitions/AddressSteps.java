@@ -30,18 +30,18 @@ public class AddressSteps {
     @When("I fill in all required address fields")
     public void fill_address_form() {
         testAddress = new HashMap<>();
-        testAddress.put("firstName", "John");
-        testAddress.put("lastName", "Doe");
-        testAddress.put("email", "john.doe@example.com");
+        testAddress.put("firstName", "Alex");
+        testAddress.put("lastName", "Andreyev");
+        testAddress.put("email", "ndryev@test.com");
         testAddress.put("company", "Test Company");
-        testAddress.put("country", "United States");
-        testAddress.put("state", "California");
-        testAddress.put("city", "San Francisco");
-        testAddress.put("address1", "123 Main St");
-        testAddress.put("address2", "Apt 4B");
-        testAddress.put("zip", "94105");
-        testAddress.put("phone", "555-123-4567");
-        testAddress.put("fax", "555-987-6543");
+        testAddress.put("country", "Latvia");
+        testAddress.put("state", "Other (Non US)");
+        testAddress.put("city", "Riga");
+        testAddress.put("address1", "123 Iela");
+        testAddress.put("address2", "Vd 2-k-1");
+        testAddress.put("zip", "1084");
+        testAddress.put("phone", "123-456-789");
+        testAddress.put("fax", "123-456-789");
 
         addressesPage.fillAddressForm(testAddress);
     }
