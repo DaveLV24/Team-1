@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.Map;
 
-public class AddressesPage {
+public class AddressesPage_AA {
     WebDriver driver;
     WebDriverWait wait;
 
@@ -31,7 +31,7 @@ public class AddressesPage {
     By saveButton = By.xpath("//input[@value='Save']");
     By successMessage = By.cssSelector("div.bar-notification.success");
 
-    public AddressesPage(WebDriver driver) {
+    public AddressesPage_AA(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }

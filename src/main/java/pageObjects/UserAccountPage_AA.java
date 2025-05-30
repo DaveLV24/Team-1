@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
-public class UserAccountPage {
+public class UserAccountPage_AA {
     WebDriver driver;
 
     By firstNameInput = By.id("FirstName");
@@ -16,7 +16,7 @@ public class UserAccountPage {
     By saveButton = By.cssSelector("input[name='save-info-button']");
     By successBanner = By.cssSelector("div.bar-notification.success");
 
-    public UserAccountPage(WebDriver driver) {
+    public UserAccountPage_AA(WebDriver driver) {
         this.driver = driver;
     }
 

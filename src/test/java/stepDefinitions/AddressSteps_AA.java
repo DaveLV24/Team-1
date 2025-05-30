@@ -1,30 +1,27 @@
 package stepDefinitions;
 
 import hooks.Hooks;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
-import pageObjects.AddressesPage;
+import pageObjects.AddressesPage_AA;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class AddressSteps {
+public class AddressSteps_AA {
     WebDriver driver = Hooks.driver;
-    AddressesPage addressesPage;
+    AddressesPage_AA addressesPageAA;
     Map<String, String> testAddress;
 
     @When("I navigate to Addresses page")
     public void navigate_to_addresses_page() {
-        addressesPage = new AddressesPage(driver);
-        addressesPage.navigateToAddressesPage();
+        addressesPageAA = new AddressesPage_AA(driver);
+        addressesPageAA.navigateToAddressesPage();
     }
 
     @When("I click Add New button")
     public void click_add_new() {
-        addressesPage.clickAddNew();
+        addressesPageAA.clickAddNew();
     }
 
     @When("I fill in all required address fields")
@@ -43,11 +40,11 @@ public class AddressSteps {
         testAddress.put("phone", "123-456-789");
         testAddress.put("fax", "123-456-789");
 
-        addressesPage.fillAddressForm(testAddress);
+        addressesPageAA.fillAddressForm(testAddress);
     }
 
     @When("I click Save button")
     public void click_save() {
-        addressesPage.saveAddress();
+        addressesPageAA.saveAddress();
     }
 }

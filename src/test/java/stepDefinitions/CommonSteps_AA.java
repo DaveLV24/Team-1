@@ -10,21 +10,21 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import pageObjects.LoginPage;
+import pageObjects.LoginPage_AA;
 
 import java.time.Duration;
 
-public class CommonSteps {
+public class CommonSteps_AA {
     WebDriver driver = Hooks.driver;
-    LoginPage loginPage;
+    LoginPage_AA loginPageAA;
 
     @Given("I am logged in")
     public void i_am_logged_in() {
         driver.get("https://demowebshop.tricentis.com/login");
-        loginPage = new LoginPage(driver);
-        loginPage.enterEmail("ndryev@gmail.com");
-        loginPage.enterPassword("password123");
-        loginPage.clickLogin();
+        loginPageAA = new LoginPage_AA(driver);
+        loginPageAA.enterEmail("ndryev@gmail.com");
+        loginPageAA.enterPassword("password123");
+        loginPageAA.clickLogin();
     }
 
     @Then("I should see a success message")

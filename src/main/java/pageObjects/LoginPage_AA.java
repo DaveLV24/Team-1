@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class LoginPage {
+public class LoginPage_AA {
     WebDriver driver;
     WebDriverWait wait;
 
@@ -17,7 +17,7 @@ public class LoginPage {
     By loggedEmail = By.cssSelector("a.account");
     By passwordErrorMessage = By.className("message-error");
 
-    public LoginPage(WebDriver driver) {
+    public LoginPage_AA(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
