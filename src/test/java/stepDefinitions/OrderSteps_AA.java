@@ -26,7 +26,7 @@ public class OrderSteps_AA {
 
         if (ordersPageAA.isNoOrdersMessageDisplayed()) {
             System.out.println("VALID: User has no orders (expected state)");
-            return; // Exit early - this is acceptable
+            return;
         }
 
         int orderCount = ordersPageAA.getOrderCount();
