@@ -4,16 +4,16 @@
 //import io.cucumber.java.en.Given;
 //import io.cucumber.java.en.When;
 //import org.junit.Assert;
-//import pageObjects.HomePage;
-//import pageObjects.LoginPage;
+//import pageObjects.HomePage_AA;
+//import pageObjects.LoginPage_AA;
 //
 //public class HomePageSteps {
-//    private final HomePage homePage;
-//    private final LoginPage loginPage;
+//    private final HomePage_AA homePage;
+//    private final LoginPage_AA loginPageAA;
 //
 //    public HomePageSteps() {
-//        this.homePage = new HomePage(Hooks.driver);
-//        this.loginPage = new LoginPage(Hooks.driver);
+//        this.homePage = new HomePage_AA(Hooks.driver);
+//        this.loginPageAA = new LoginPage_AA(Hooks.driver);
 //    }
 //
 //    @Given("I am on the homepage")
@@ -29,7 +29,7 @@
 //    @When("I login from homepage")
 //    public void loginFromHomepage() {
 //        homePage.clickLoginLink();
-//        loginPage.login("test@example.com", "password123");
+//        loginPageAA.login("test@example.com", "password123");
 //        Assert.assertTrue(homePage.isUserLoggedIn());
 //    }
 //}
