@@ -5,27 +5,26 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-import pageObjects.CustomerInfoPage;
-import pageObjects.LoginPage;
-import pageObjects.MainPage;
+import pageObjects.CustomerInfoPageBB;
+import pageObjects.LoginPageBB;
+import pageObjects.MainPageBB;
 
 import java.util.Map;
 
 import static org.junit.Assert.*;
 
-public class MyAccountSteps {
+public class MyAccountStepsBB {
     private WebDriver driver;
-    private static CustomerInfoPage  customerInfoPage;
-    private static LoginPage loginPage;
-    private static MainPage mainPage;
+    private static CustomerInfoPageBB customerInfoPage;
+    private static LoginPageBB loginPage;
+    private static MainPageBB mainPage;
 
-    public MyAccountSteps() {
+    public MyAccountStepsBB() {
         this.driver = Hooks.driver;
-        mainPage = PageFactory.initElements(driver, MainPage.class);
-        customerInfoPage = PageFactory.initElements(driver, CustomerInfoPage.class);
-        loginPage = PageFactory.initElements(driver, LoginPage.class);
+        mainPage = PageFactory.initElements(driver, MainPageBB.class);
+        customerInfoPage = PageFactory.initElements(driver, CustomerInfoPageBB.class);
+        loginPage = PageFactory.initElements(driver, LoginPageBB.class);
     }
 
     @Given("^I am on Demo Web Shop page$")

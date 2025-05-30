@@ -5,22 +5,22 @@ import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import pageObjects.MainPage;
-import pageObjects.RegisterPage;
+import pageObjects.MainPageBB;
+import pageObjects.RegisterPageBB;
 
 import java.util.Map;
 
 import static org.junit.Assert.*;
 
-public class RegisterPasswordLengthSteps {
+public class RegisterPasswordLengthStepsBB {
     private WebDriver driver;
-    private static RegisterPage registerPage;
-    private static MainPage mainPage;
+    private static RegisterPageBB registerPage;
+    private static MainPageBB mainPage;
 
-    public RegisterPasswordLengthSteps() {
+    public RegisterPasswordLengthStepsBB() {
         this.driver = Hooks.driver;
-        mainPage = PageFactory.initElements(driver, MainPage.class);
-        registerPage = PageFactory.initElements(driver, RegisterPage.class);
+        mainPage = PageFactory.initElements(driver, MainPageBB.class);
+        registerPage = PageFactory.initElements(driver, RegisterPageBB.class);
     }
 
     @When("^I open registration page$")

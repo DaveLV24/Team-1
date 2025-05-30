@@ -4,7 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
-public class MainPage {
+public class MainPageBB {
     @FindBy (how = How.CSS, using = "a[href='/customer/info']")
     private WebElement customerInfoHeaderButton;
     @FindBy(how = How.CSS, using = "a[href='/register']")

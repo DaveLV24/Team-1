@@ -1,11 +1,10 @@
 package pageObjects;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
-public class MyAccountPage {
+public class MyAccountPageBB {
     @FindBy(how = How.XPATH, using = "//*[@class='title']/*[text()='My account']")
     private WebElement myAccountTitle;
     @FindBy(how = How.CSS, using = ".listbox a[href='/customer/info']")

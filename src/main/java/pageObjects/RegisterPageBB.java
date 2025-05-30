@@ -4,9 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
-import java.security.PublicKey;
-
-public class RegisterPage {
+public class RegisterPageBB {
     @FindBy (how = How.ID, using = "FirstName")
     private WebElement firstNameInput;
     @FindBy (how = How.ID, using = "LastName")
