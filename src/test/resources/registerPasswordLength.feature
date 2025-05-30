@@ -9,7 +9,7 @@ Feature: Password length in registration page
       | last_name   | Storm |
 
 
-  @TC-003 @BUG-001
+  @TC-003 @BUG-001 @BUG-021
   Scenario Outline: Invalid password length
     When I enter a password on length <number>
     And I click register button
